@@ -1,5 +1,7 @@
 Spread::Application.routes.draw do
 
+  themes_for_rails
+
   root :to => 'welcome#index'
   
   devise_for :users

@@ -57,3 +57,6 @@ gem 'rev'
 
 # Javascript MVC
 gem "spine-rails"
+
+# Multiple themes
+gem 'themes_for_rails'
