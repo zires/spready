@@ -59,4 +59,4 @@ gem 'rev'
 gem "spine-rails"
 
 # Multiple themes
-gem 'themes_for_rails'
+gem 'themes_for_rails', "~> 0.5.0.pre"
