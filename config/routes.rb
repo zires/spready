@@ -1,4 +1,4 @@
-Spread::Application.routes.draw do
+Spready::Application.routes.draw do
 
   root :to => 'welcome#index'
 
