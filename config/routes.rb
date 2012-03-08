@@ -2,8 +2,6 @@ Spready::Application.routes.draw do
 
   root :to => 'welcome#index'
 
-  themes_for_rails
-  
   devise_for :users
 
   # The priority is based upon order of creation:
