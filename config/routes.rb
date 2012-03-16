@@ -1,24 +1,8 @@
-module ThemePark
-  module Server
-    def self.call(env)
-      path = env['PATH_INFO'].chomp('/')
-      #@file_server   = ::Rack::File.new('/sp-themes/default/assets/compiled', nil)
-      #@file_server   = ::Rack::File.new("#{Rails.root}/sp-themes/default/assets/compiled", nil)
-      @file_server    = ActionDispatch::Static.new(Spready::Application, "sp-themes/default/assets/compiled", "public, max-age=60")
-      #[ 200, {"Content-Type" => "text/plain"}, [path] ]
-      @file_server.call(env)
-    end
-  end
-end
-
-
 Spready::Application.routes.draw do
 
   root :to => 'welcome#index'
 
   devise_for :users
-
-  mount ThemePark::Server => "/themes"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

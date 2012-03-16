@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
-  prepend_view_path "#{Rails.root}/sp-themes/default/views"
-
+  theme 'default'
   def index
     
   end

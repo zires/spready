@@ -59,6 +59,8 @@ gem 'rev'
 gem "spine-rails"
 
 # Multiple themes
+gem 'theme_park'
+
 # gem 'themes_for_rails', :git => "git://github.com/zires/themes_for_rails.git", :branch => "dev"
 # Support html template engines - Haml, slim, Liquid
 gem 'haml', "~> 3.1.4"
