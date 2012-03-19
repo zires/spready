@@ -1,9 +1,9 @@
-Spread::Application.routes.draw do
+Spready::Application.routes.draw do
 
   root :to => 'welcome#index'
   
   match 'sp-admin' => 'admin/dashboard#index'
-  
+
   devise_for :users
 
   # The priority is based upon order of creation:

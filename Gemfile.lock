@@ -67,6 +67,7 @@ GEM
       addressable (~> 2.2)
       multipart-post (~> 1.1)
       rack (~> 1.1)
+    haml (3.1.4)
     hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.0)
@@ -87,6 +88,7 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.0.7)
     libv8 (3.3.10.4)
+    liquid (2.3.0)
     mail (2.4.1)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -163,12 +165,19 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    slim (1.1.0)
+      temple (~> 0.3.5)
+      tilt (~> 1.3.2)
     spine-rails (0.1.0)
       rails (>= 3.1.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    temple (0.3.5)
+    theme_park (0.1.0.beta)
+      activesupport (>= 3.1)
+      rack
     therubyracer (0.9.9)
       libv8 (~> 3.3.10)
     thor (0.14.6)
@@ -196,8 +205,13 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   devise (>= 2.0.0)
+<<<<<<< HEAD
   jbuilder
+=======
+  haml (~> 3.1.4)
+>>>>>>> multiple-themes
   jquery-rails
+  liquid (~> 2.3.0)
   mongoid (= 2.4.3)
   omniauth
   omniauth-douban
@@ -207,7 +221,9 @@ DEPENDENCIES
   rails (= 3.2.0)
   rev
   sass-rails (~> 3.2.3)
+  slim (~> 1.1.0)
   spine-rails
+  theme_park
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   unicorn

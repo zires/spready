@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: spread_development
+  database: spready_development
 
 test:
   host: localhost
-  database: spread_test
+  database: spready_test
 
 # set these environment variables on your prod server
 production:
