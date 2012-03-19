@@ -23,7 +23,7 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder'
 
 # Use unicorn as the web server
 gem 'unicorn'
@@ -36,6 +36,7 @@ gem 'unicorn'
 
 # User authentication
 gem "devise", ">= 2.0.0"
+gem 'cancan'
 
 # front-end skin
 gem "twitter-bootstrap-rails", :git => "http://github.com/seyhunak/twitter-bootstrap-rails.git"
