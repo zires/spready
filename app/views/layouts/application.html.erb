@@ -1,36 +1,55 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title>Spready</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title><%= title %> - Spready</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <!-- header navbar -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#"><%= title %></a>
+        <div class="nav-collapse">
+          <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of navbar -->
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<ul>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Register', new_user_registration_path)  %>
-  </li>
-<% end %>
-</ul>
-<%= yield %>
+  <!-- container -->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li>
+              <a href="#"><i class="icon-home"></i>Site</a>
+              <a href="#"><i class="icon-book"></i>Forum</a>
+              <a href="#"><i class="icon-list-alt"></i>Category</a>
+              <a href="#"><i class="icon-star"></i>Topic</a>
+              <a href="#"><i class="icon-user"></i>User</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="span10">
+        <%= yield %>
+      </div>
+    </div>
+    <hr>
+    <footer><p>© Spready 2012</p></footer>
+  </div>
+  <!-- end of container -->
 
 </body>
 </html>

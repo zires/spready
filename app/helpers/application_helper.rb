@@ -8,4 +8,12 @@ module ApplicationHelper
     end
   end
 
+  def title
+    if @title.blank?
+      params[:controller].split('/').pop.titleize
+    else
+      @title
+    end  
+  end
+
 end
