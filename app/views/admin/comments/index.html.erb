@@ -1,0 +1,21 @@
+<h1>Listing admin_comments</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_admin_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Comment', new_admin_comment_path %>

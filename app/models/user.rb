@@ -39,4 +39,8 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  has_many :topics
+  has_many :comments
+  
 end
