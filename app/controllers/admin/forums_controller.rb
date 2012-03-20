@@ -1,4 +1,4 @@
-class ForumsController < Admin::ApplicationController
+class Admin::ForumsController < Admin::ApplicationController
   # GET /admin/forums
   # GET /admin/forums.json
   def index

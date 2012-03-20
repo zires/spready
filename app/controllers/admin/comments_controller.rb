@@ -1,4 +1,4 @@
-class CommentsController < Admin::ApplicationController
+class Admin::CommentsController < Admin::ApplicationController
   # GET /admin/comments
   # GET /admin/comments.json
   def index
