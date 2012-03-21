@@ -23,6 +23,8 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
+  auto_increment :uuid
+
   ## Encryptable
   # field :password_salt, :type => String
 
@@ -40,7 +42,4 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
-  has_many :topics
-  has_many :comments
-  
 end

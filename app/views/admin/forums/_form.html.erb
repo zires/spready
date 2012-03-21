@@ -1,4 +1,4 @@
-<%= form_for(@forum) do |f| %>
+<%= form_for(@forum, :url => url) do |f| %>
   <% if @forum.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this admin_forum from being saved:</h2>
@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <div>name: <%= f.text_field :name %></div>
+  <div>url_name: <%= f.text_field :url_name %></div>
+  <div>theme: <%= f.text_field :theme %></div>
   <div class="actions">
     <%= f.submit %>
   </div>

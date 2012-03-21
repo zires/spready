@@ -3,10 +3,13 @@ Spready::Application.routes.draw do
   root :to => 'welcome#index'
   
   devise_for :users
+  
+  resources :users, :categories, :comments, :forums, :topics
 
-  match 'sp-admin' => 'admin/dashboard#index'
   namespace :admin, :path => 'sp-admin' do
+    root :to => 'dashboard#index'
     resources :users, :categories, :comments, :forums, :topics
+    resource  :site, :only => [ :show, :edit, :update ], :controller => 'site'
   end
 
   # The priority is based upon order of creation:

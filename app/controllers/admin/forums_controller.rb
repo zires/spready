@@ -40,11 +40,14 @@ class Admin::ForumsController < Admin::ApplicationController
   # POST /admin/forums
   # POST /admin/forums.json
   def create
-    @forum = Forum.new(params[:admin_forum])
+    @forum = Forum.new(params[:forum])
 
     respond_to do |format|
       if @forum.save
-        format.html { redirect_to @forum, notice: 'Forum was successfully created.' }
+        flash[:notice] = 'Forum was successfully created.'
+        format.html { redirect_to :action => 'index' }
+        # I do not know why below line doesn't work.
+        #format.html { redirect_to :action => 'index', :notice => 'Forum was successfully created.' }
         format.json { render json: @forum, status: :created, location: @forum }
       else
         format.html { render action: "new" }
@@ -59,8 +62,11 @@ class Admin::ForumsController < Admin::ApplicationController
     @forum = Forum.find(params[:id])
 
     respond_to do |format|
-      if @forum.update_attributes(params[:admin_forum])
-        format.html { redirect_to @forum, notice: 'Forum was successfully updated.' }
+      if @forum.update_attributes(params[:forum])
+        flash[:notice] = 'Forum was successfully updated.'
+        format.html { redirect_to :action => 'index' }
+        # I do not know why below line doesn't work.
+        #format.html { redirect_to :action => 'index', :notice => 'Forum was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

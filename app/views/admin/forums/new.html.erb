@@ -1,5 +1,5 @@
-<h1>New admin_forum</h1>
+<h1>New forum</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'form', :locals => { :url => admin_forums_path } %>
 
 <%= link_to 'Back', admin_forums_path %>

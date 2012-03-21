@@ -1,6 +1,6 @@
-<h1>Editing admin_forum</h1>
+<h1>Editing forum</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'form', :locals => { :url => admin_forum_path(@forum) } %>
 
 <%= link_to 'Show', @forum %> |
 <%= link_to 'Back', admin_forums_path %>

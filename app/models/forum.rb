@@ -4,8 +4,8 @@ class Forum
   
   field :name,     :type => String
   field :url_name, :type => String   # Name for url
+  field :theme,    :type => String, :default => 'spready'
 
   embeds_many :category
-  belongs_to  :site
 
 end

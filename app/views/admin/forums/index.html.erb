@@ -1,19 +1,32 @@
-<h1>Listing admin_forums</h1>
+<h1>Listing forums</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @forums.each do |forum| %>
-  <tr>
-    <td><%= link_to 'Show', forum %></td>
-    <td><%= link_to 'Edit', edit_admin_forum_path(forum) %></td>
-    <td><%= link_to 'Destroy', forum, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% if flash[:notice] %>
+<p class="alert"><%= flash[:notice] %></p>
 <% end %>
+
+<table class="table table-bordered table table-striped">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>url_name</th>
+      <th>theme</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @forums.each do |forum| %>
+    <tr>
+      <td><%= forum.name %></td>
+      <td><%= forum.url_name %></td>
+      <td><%= forum.theme %></td>
+      <td>
+        <%= link_to 'Show', forum %>
+        <%= link_to 'Edit', edit_admin_forum_path(forum) %>
+        <%= link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
 <br />
