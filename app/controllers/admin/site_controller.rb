@@ -16,4 +16,8 @@ class Admin::SiteController < ApplicationController
 
   def update
   end
+
+  def install
+  end
+  
 end

@@ -12,6 +12,8 @@ Spready::Application.routes.draw do
     resource  :site, :only => [ :show, :edit, :update ], :controller => 'site'
   end
 
+  match '/install' => 'admin/site#install'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
