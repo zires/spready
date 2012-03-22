@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   
   def index
-    unless Site.instance.specifical_index
-      if Site.instance.forum
-        redirect_to Site.instance.forum
+    unless Site.specifical_index
+      if Site.forum
+        redirect_to Site.forum
       else
         redirect_to '/install'
       end

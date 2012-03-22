@@ -8,4 +8,13 @@ class Site
   field :forum,            :type => String                          # Default forum. If it's nil, will be the first forum
   field :theme,            :type => String,  :default => 'spready'  # Default theme
   
+  # Use method missing to do like Site.subdomain.
+  def self.method_missing(method, *args, &block)
+    if instance.respond_to?(method)
+      instance.send method.to_sym
+    else
+      super
+    end
+  end
+
 end
