@@ -8,13 +8,26 @@ class Site
   field :forum,            :type => String                          # Default forum. If it's nil, will be the first forum
   field :theme,            :type => String,  :default => 'spready'  # Default theme
   
+  # serialized attributes for cache.
+  cattr_reader :settings
+  @@settings = YAML.load(Site.instance.attributes.to_yaml)
+
+  # When Site.instance.save, need refresh settings
+  after_save :reload_settings
+
   # Use method missing to do like Site.subdomain.
   def self.method_missing(method, *args, &block)
-    if instance.respond_to?(method)
-      instance.send method.to_sym
+    if settings.key?(method.to_s)
+      settings[method.to_s]
     else
       super
     end
+  end
+
+  protected
+  
+  def reload_settings
+    @@settings = YAML.load(Site.instance.attributes.to_yaml)
   end
 
 end
