@@ -8,11 +8,21 @@ class Site
   field :forum,            :type => String                          # Default forum. If it's nil, will be the first forum
   field :theme,            :type => String,  :default => 'spready'  # Default theme
   
+  private_class_method :create
+
+  @@__instance = nil
+
+  def self.instance
+    return @@__instance if @@__instance
+    Mutex.new.synchronize do
+      @@__instance = self.first || create()
+    end
+  end
+
   # serialized attributes for cache.
   cattr_reader :settings
-  @@settings = YAML.load(Site.instance.attributes.to_yaml)
 
-  # When Site.instance.save, need refresh settings
+  # When Site.instance be saved, need refresh settings.
   after_save :reload_settings
 
   # Use method missing to do like Site.subdomain.
@@ -27,7 +37,7 @@ class Site
   protected
   
   def reload_settings
-    @@settings = YAML.load(Site.instance.attributes.to_yaml)
+    @@settings = YAML.load(@@__instance.attributes.to_yaml)
   end
 
 end
