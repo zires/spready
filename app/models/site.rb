@@ -21,13 +21,17 @@ class Site
 
   # serialized attributes for cache.
   cattr_reader :settings
+  def self.initialize!
+    Site.instance
+    @@settings = YAML.load(@@__instance.attributes.to_yaml)
+  end
 
   # When Site.instance be saved, need refresh settings.
   after_save :reload_settings
 
   # Use method missing to do like Site.subdomain.
   def self.method_missing(method, *args, &block)
-    if settings.key?(method.to_s)
+    if settings and settings.key?(method.to_s)
       settings[method.to_s]
     else
       super
@@ -37,7 +41,7 @@ class Site
   protected
   
   def reload_settings
-    @@settings = YAML.load(@@__instance.attributes.to_yaml)
+    @@settings = YAML.load(@@__instance.attributes.to_yaml) if @@__instance
   end
 
 end
