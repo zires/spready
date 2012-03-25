@@ -1,13 +1,14 @@
 class Comment
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Token
 
   field :content,   :type => String
-  field :user_uuid, :type => Integer
+  field :uuid,      :type => Integer
 
   embedded_in :topic
-  embeds_mang :comments
+  embeds_many :comments
   embedded_in :comment
-  belongs_to  :user
 
+  token :length => 6
 end

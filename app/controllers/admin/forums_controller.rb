@@ -13,7 +13,7 @@ class Admin::ForumsController < Admin::ApplicationController
   # GET /admin/forums/1
   # GET /admin/forums/1.json
   def show
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class Admin::ForumsController < Admin::ApplicationController
 
   # GET /admin/forums/1/edit
   def edit
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_slug(params[:id])
   end
 
   # POST /admin/forums
@@ -59,7 +59,7 @@ class Admin::ForumsController < Admin::ApplicationController
   # PUT /admin/forums/1
   # PUT /admin/forums/1.json
   def update
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_slug(params[:id])
 
     respond_to do |format|
       if @forum.update_attributes(params[:forum])
@@ -78,12 +78,18 @@ class Admin::ForumsController < Admin::ApplicationController
   # DELETE /admin/forums/1
   # DELETE /admin/forums/1.json
   def destroy
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_slug(params[:id])
     @forum.destroy
 
     respond_to do |format|
       format.html { redirect_to admin_forums_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /admin/forums/1/details
+  # GET /admin/forums/1/details.json
+  def details
+    @forum = Forum.find_by_slug(params[:id])
   end
 end

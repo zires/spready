@@ -1,0 +1,4 @@
+<%= form_for @comment, :url => create_comment_path(@forum, @category, @topic) do |f| %>
+  Content: <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

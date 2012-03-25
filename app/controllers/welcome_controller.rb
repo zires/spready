@@ -2,10 +2,11 @@ class WelcomeController < ApplicationController
   
   def index
     unless Site.specifical_index
-      if Site.forum
-        redirect_to Site.forum
+      if Site.forum_id
+        @forum = Site.forum
+        render :template => 'forums/show'
       else
-        redirect_to '/install'
+        redirect_to install_path
       end
     end
   end

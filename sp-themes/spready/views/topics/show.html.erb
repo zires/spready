@@ -1,0 +1,11 @@
+<h1><%= @forum.name %></h1>
+<h2><%= @category.name %></h2>
+
+<h3><%= @topic.title %></h3>
+<div><%= raw @topic.content %></div>
+
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+<% end %>
+
+<%= link_to 'new comment', new_comment_path(@forum, @category, @topic) %>

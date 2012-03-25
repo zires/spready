@@ -2,7 +2,8 @@ class Admin::CategoriesController < Admin::ApplicationController
   # GET /admin/categories
   # GET /admin/categories.json
   def index
-    @categories = Category.all
+    @forum      = Forum.find_by_slug(params[:forum_id])
+    @categories = @forum.categories
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,8 @@ class Admin::CategoriesController < Admin::ApplicationController
   # GET /admin/categories/new
   # GET /admin/categories/new.json
   def new
-    @category = Category.new
+    @forum    = Forum.find_by_slug(params[:forum_id])
+    @category = @forum.categories.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +36,19 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   # GET /admin/categories/1/edit
   def edit
-    @category = Category.find(params[:id])
+    @forum    = Forum.find_by_slug(params[:forum_id])
+    @category = @forum.categories.find_by_slug(params[:id])
   end
 
   # POST /admin/categories
   # POST /admin/categories.json
   def create
-    @category = Category.new(params[:admin_category])
+    @forum    = Forum.find_by_slug(params[:forum_id])
+    @category = @forum.categories.new(params[:category])
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_forum_categories_path(@forum), notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }

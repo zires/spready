@@ -1,4 +1,4 @@
-<%= form_for(@category) do |f| %>
+<%= form_for(@category, :url => url ) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this admin_category from being saved:</h2>
@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+  <div>name: <%= f.text_field :name %></div>
+  <div>slug: <%= f.text_field :slug %></div>
   <div class="actions">
     <%= f.submit %>
   </div>

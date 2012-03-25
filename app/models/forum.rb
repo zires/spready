@@ -1,11 +1,13 @@
 class Forum
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   
   field :name,     :type => String
-  field :url_name, :type => String   # Name for url
   field :theme,    :type => String, :default => 'spready'
 
-  embeds_many :category
+  embeds_many :categories
+
+  slug :name
 
 end

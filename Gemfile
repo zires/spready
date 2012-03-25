@@ -52,6 +52,8 @@ gem "omniauth-qzone"
 gem "mongoid", "2.4.3"
 gem "bson_ext", "1.5.2"
 gem "mongoid_auto_inc"
+gem 'mongoid_slug'
+gem 'mongoid_token', '~> 1.0.0'
 
 # Autotest
 gem 'watchr'
