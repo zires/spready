@@ -1,5 +1,0 @@
-<h1><%= @forum.name %></h1>
-<% @forum.categories.each do |c| %>
-  <%= link_to c.name, category_path(@forum, c) %>
-<% end %>
-
