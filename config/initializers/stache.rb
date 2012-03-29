@@ -1,0 +1,1 @@
+Stache.template_base_path = File.join(Rails.root, "sp-themes", "spready")

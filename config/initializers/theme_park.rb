@@ -15,7 +15,7 @@
 # ===
 ThemePark.setup do |config|
 
-  config.root             = "/sp-themes/"
-
+  config.root     = "/sp-themes/"
+  config.handlers = [:mustache]
 end
 # ===
