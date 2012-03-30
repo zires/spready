@@ -66,4 +66,4 @@ gem "spine-rails"
 gem 'theme_park'
 
 # Support mustache template engines
-gem 'stache'
+gem 'stache', :git => "http://github.com/zires/stache.git"

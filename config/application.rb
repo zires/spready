@@ -62,8 +62,5 @@ module Spready
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.assets.paths << "sp-themes/default/assets/images"
-    config.assets.paths << "sp-themes/default/assets/javascripts"
-    config.assets.paths << "sp-themes/default/assets/stylesheets"
   end
 end

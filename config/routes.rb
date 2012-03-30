@@ -2,16 +2,12 @@ Spready::Application.routes.draw do
 
   root :to => 'welcome#index'
   
+  match '/install' => 'admin/site#install', :as => :install
+  match '/install/done' => 'admin/site#done', :as => :install_done, :via => :post
+
   devise_for :users
   
   resources :forums
-
-  match ':forum_id/:id' => 'categories#show', :as => :category
-  match ':forum_id/:id/topic/new' => 'topics#new', :as => :new_topic
-  match ':forum_id/:id/topic/create' => 'topics#create', :as => :create_topic, :via => :post
-  match ':forum_id/:category_id/topic/:id' => 'topics#show', :as => :topic
-  match ':forum_id/:category_id/topic/:id/comments/new' => 'comments#new', :as => :new_comment
-  match ':forum_id/:category_id/topic/:id/comments/create' => 'comments#create', :as => :create_comment, :via => :post
 
   namespace :admin, :path => 'sp-admin' do
     root :to => 'dashboard#index'
@@ -34,8 +30,13 @@ Spready::Application.routes.draw do
     resource  :site, :only => [ :show, :edit, :update ], :controller => 'site'
   end
 
-  match '/install' => 'admin/site#install', :as => :install
-  match '/install/done' => 'admin/site#done', :as => :install_done, :via => :post
+  match ':forum_id/:id' => 'categories#show', :as => :category
+  match ':forum_id/:id/topic/new' => 'topics#new', :as => :new_topic
+  match ':forum_id/:id/topic/create' => 'topics#create', :as => :create_topic, :via => :post
+  match ':forum_id/:category_id/topic/:id' => 'topics#show', :as => :topic
+  match ':forum_id/:category_id/topic/:id/comments/new' => 'comments#new', :as => :new_comment
+  match ':forum_id/:category_id/topic/:id/comments/create' => 'comments#create', :as => :create_comment, :via => :post
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

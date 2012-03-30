@@ -1,7 +1,7 @@
-class Admin::SiteController < ApplicationController
-
+class Admin::SiteController < Admin::ApplicationController
+  
   def show
-    @site = Site.instance
+    @site = ::Site.instance
 
     respond_to do |format|
       format.html
@@ -10,7 +10,7 @@ class Admin::SiteController < ApplicationController
   end
 
   def edit
-    @site = Site.instance
+    @site = ::Site.instance
   end
 
   def update
@@ -21,13 +21,13 @@ class Admin::SiteController < ApplicationController
   end
   
   def done
-    @forum = Forum.new(params[:forum])
-    site   = Site.instance
-    site.forum_id = @forum.id
+    @forum        = Forum.new(params[:forum])
+    site          = ::Site.instance
+    site.forum_id = @forum.id.to_s
     if @forum.save and site.save
       redirect_to root_path
     else
-      render :action => 'install'
+      redirect_to install_path
     end  
   end
 

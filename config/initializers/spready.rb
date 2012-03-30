@@ -1,0 +1,1 @@
+#require "#{Rails.root}/sp-orm/mongoid/engine"
