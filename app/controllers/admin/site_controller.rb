@@ -1,8 +1,8 @@
 class Admin::SiteController < Admin::ApplicationController
   
   def show
-    @site = ::Site.instance
-
+    @site  = ::Site.instance
+    @forum = ::Site.forum
     respond_to do |format|
       format.html
       format.json { render :json => @site }

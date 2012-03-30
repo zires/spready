@@ -27,8 +27,13 @@ Spready::Application.routes.draw do
     end
 
     resources :users, :forums
-    resource  :site, :only => [ :show, :edit, :update ], :controller => 'site'
+    #resource  :site, :only => [ :show, :edit, :update ], :controller => 'site'
   end
+
+  # Site
+  match 'sp-admin/site/edit' => 'admin/site#edit'
+  match 'sp-admin/site' => 'admin/site#show'
+  match 'sp-admin/site/update' => 'admin/site#update', :as => :update_site, :via => :post
 
   match ':forum_id/:id' => 'categories#show', :as => :category
   match ':forum_id/:id/topic/new' => 'topics#new', :as => :new_topic
