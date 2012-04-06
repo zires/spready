@@ -3,10 +3,10 @@ class Forum
   include Mongoid::Timestamps
   include Mongoid::Slug
   
-  field :name,     :type => String
-  field :theme,    :type => String, :default => 'spready'
+  field :name,  :type => String
+  field :theme, :type => String, :default => 'spready'
 
-  embeds_many :categories
+  has_many :categories
 
   slug :name
 

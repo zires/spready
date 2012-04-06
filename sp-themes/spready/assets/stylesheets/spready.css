@@ -1,5 +1,7 @@
 /*
  *
  *= require_self
- *= require_tree .
+ *= require twitter/bootstrap
+ *= require twitter/bootstrap_responsive
+ *= require ./bootstrap_override
 */
