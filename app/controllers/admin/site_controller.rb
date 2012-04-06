@@ -14,6 +14,12 @@ class Admin::SiteController < Admin::ApplicationController
   end
 
   def update
+    @site = ::Site.instance
+    if @site.update_attributes(params[:site])
+      redirect_to :action => 'show'
+    else
+      render :action => 'edit'
+    end
   end
 
   def install

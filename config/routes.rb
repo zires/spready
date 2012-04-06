@@ -33,7 +33,7 @@ Spready::Application.routes.draw do
   # Site
   match 'sp-admin/site/edit' => 'admin/site#edit'
   match 'sp-admin/site' => 'admin/site#show'
-  match 'sp-admin/site/update' => 'admin/site#update', :as => :update_site, :via => :post
+  match 'sp-admin/site/update' => 'admin/site#update', :as => :update_site, :via => :put
 
   match ':forum_id/:id' => 'categories#show', :as => :category
   match ':forum_id/:id/topic/new' => 'topics#new', :as => :new_topic
