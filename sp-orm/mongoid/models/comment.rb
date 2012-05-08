@@ -3,8 +3,8 @@ class Comment
   include Mongoid::Timestamps
   include Mongoid::Token
 
-  field :content,   :type => String
-  field :uuid,      :type => Integer
+  field :content, :type => String
+  field :uuid,    :type => Integer
 
   embedded_in :topic
   embeds_many :comments

@@ -1,7 +1,10 @@
 require File.expand_path('../boot', __FILE__)
+require File.expand_path('../../lib/spready',  __FILE__)
 
-# Pick the frameworks you want:
-# require "active_record/railtie"
+if Spready.orm == 'active_record'
+  require "active_record/railtie"
+end
+
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
@@ -16,6 +19,12 @@ if defined?(Bundler)
 end
 
 module Spready
+  class Engine < Rails::Engine
+    paths['app/models'] << Spready.app_models_path
+  end  
+end
+
+module Spready
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,6 +36,7 @@ module Spready
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+    #paths['app/models'] = Spready.app_models_path
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

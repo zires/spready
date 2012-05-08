@@ -1,6 +1,22 @@
 source 'http://ruby.taobao.org/'
 
+require ::File.expand_path('../lib/spready',  __FILE__)
+
 gem 'rails', '3.2.0'
+
+# ORM
+# Choose which orm to be loaded.
+case Spready.database
+
+when 'mysql' then gem 'mysql2'
+
+when 'mongoid'
+  gem "mongoid", "2.4.3"
+  gem "bson_ext", "1.5.2"
+  gem "mongoid_auto_inc"
+  gem 'mongoid_slug'
+  gem 'mongoid_token', '~> 1.0.0'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -47,13 +63,6 @@ gem "omniauth-weibo"
 gem "omniauth-renren", "~> 1.0.0.rc2.1"
 gem "omniauth-douban"
 gem "omniauth-qzone"
-
-# Mongodb
-gem "mongoid", "2.4.3"
-gem "bson_ext", "1.5.2"
-gem "mongoid_auto_inc"
-gem 'mongoid_slug'
-gem 'mongoid_token', '~> 1.0.0'
 
 # Autotest
 gem 'watchr'
