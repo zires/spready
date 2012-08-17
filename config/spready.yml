@@ -1,2 +1,0 @@
-orm: mongoid       # or active_record
-database: mongoid  # or mysql/oracle/postgresql/sqlite3/frontbase/ibm_db

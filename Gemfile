@@ -16,6 +16,11 @@ group :mysql do
   gem 'mysql2'
 end
 
+group :sinatra do
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+end
+
 # case Spready.database
 
 # when 'mysql' then gem 'mysql2'
@@ -52,7 +57,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
@@ -82,6 +87,5 @@ gem "spine-rails"
 gem 'theme_park'
 
 # # Support mustache template engines
-gem "mustache"
-gem 'stache'
-# gem 'stache', :git => "http://github.com/zires/stache.git"
+#gem "mustache"
+#gem 'stache'

@@ -1,7 +1,8 @@
 require File.expand_path('../boot', __FILE__)
-require File.expand_path('../../lib/spready',  __FILE__)
 
-if Spready.orm == 'active_record'
+SPREADY = YAML.load_file( File.expand_path('../../sp_config.yml',  __FILE__) )
+
+if SPREADY['database'] == 'mysql'
   require "active_record/railtie"
 end
 
@@ -16,11 +17,25 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
+
+  if SPREADY['database'] == 'mysql'
+    Bundler.require(:mysql)
+  end
+
+  if SPREADY['database'] == 'mongodb'
+    Bundler.require(:mongoid)
+  end
+
 end
 
 module Spready
   class Engine < Rails::Engine
-    paths['app/models'] << Spready.app_models_path
+
+    case SPREADY['database']
+    when 'mysql'   then paths['app/models'] << "sp-orm/active_record/models"
+    when 'mongodb' then paths['app/models'] << "sp-orm/mongoid/models"
+    end
+
   end  
 end
 
