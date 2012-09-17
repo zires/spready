@@ -1,2 +1,4 @@
-module Spready::Admin::ForumsHelper
+module Spready
+  module Admin::ForumsHelper
+  end
 end

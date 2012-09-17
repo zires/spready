@@ -1,6 +1,0 @@
-* Support subdomains
-* Multiple themes
-* Plugin design
-* Chat room(as a plugin)
-* API design
-* Reputation and badges(as a plugin)

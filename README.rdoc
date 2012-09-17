@@ -1,5 +1,8 @@
-== Info
+= Spready
 
 Spready. A better way to forum.
 
-== Install
+= Install
+
+
+This project rocks and uses MIT-LICENSE.

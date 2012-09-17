@@ -1,9 +1,0 @@
-<h1><%= @forum.name %></h1>
-<h2><%= @category.name %></h2>
-
-<ul>
-  <% @topics.each do |topic| %>
-    <%= link_to topic.title, topic_path(@forum, @category, topic) %>
-  <% end %>
-</ul>
-<%= link_to 'new topic', new_topic_path(@forum, @category) %>

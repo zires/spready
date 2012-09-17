@@ -1,17 +1,19 @@
-class Spready::WelcomeController < Spready::ApplicationController
-  
-  def index
-    forum_count = Spready::Forum.count
-    case
-      when forum_count == 0
-        render :text => 'Not have forum yet'
-      when forum_count == 1
-        redirect_to Spready::Forum.first
-      when forum_count > 1
-        @forums = Spready::Forum
-      else
-        not_found
+module Spready
+  class WelcomeController < ApplicationController
+    
+    def index
+      count = Forum.count
+      case
+        when count == 0
+          render 'empty'
+        when count == 1
+          redirect_to Forum.first
+        when count > 1
+          @forums = Forum.all
+        else
+          not_found
+      end
     end
-  end
 
+  end
 end

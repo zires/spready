@@ -1,4 +1,6 @@
 require 'test_helper'
 
-class Spready::Admin::ForumsHelperTest < ActionView::TestCase
+module Spready
+  class Admin::ForumsHelperTest < ActionView::TestCase
+  end
 end

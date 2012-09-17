@@ -1,0 +1,25 @@
+<h1>Listing admin_forums</h1>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th>theme</th>
+    <th>operator</th>
+  </tr>
+
+<% @admin_forums.each do |admin_forum| %>
+  <tr>
+    <td><%= admin_forum.name %></td>
+    <td><%= admin_forum.theme %></td>
+    <td>
+      <%= link_to 'Show', admin_forum %>
+      <%= link_to 'Edit', edit_admin_forum_path(admin_forum) %>
+      <%= link_to 'Destroy', admin_forum, :method => :delete, :data => { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Forum', new_admin_forum_path %>

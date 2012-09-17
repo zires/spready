@@ -1,2 +1,0 @@
-module Spready::ForumsHelper
-end

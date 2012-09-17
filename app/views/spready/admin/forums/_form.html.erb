@@ -1,0 +1,15 @@
+<%= semantic_form_for ([:admin, @admin_forum]) do |f| %>
+  <% if @admin_forum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_forum.errors.count, "error") %> prohibited this admin_forum from being saved:</h2>
+
+      <ul>
+      <% @admin_forum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.inputs :name, :theme %>
+  <%= f.actions %>
+<% end %>
