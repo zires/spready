@@ -1,31 +1,22 @@
-# encoding: utf-8
 require 'active_support/core_ext/module/delegation'
+require 'spready/configuration'
 
 module Spready
-  autoload :Configuration, 'spready/configuration'
-
-  # Setup and return itself
+  
   def self.setup
     yield config if block_given?
-    self
   end
 
   class << self
     
-    delegate :orm, :to => :config
-
-    delegate :user_class, :authenticate_method, :to => :user
+    delegate :orm, :user_class, :user_roles, :user_provider, :authenticate_method, :theme, :to => :config
 
     def config
       @@config ||= Spready::Configuration.new
     end
 
-    def user
-      config.user
-    end
-
     def use_devise?
-      user.provider.to_s == 'devise'
+      user_provider.to_s == 'devise'
     end
 
   end

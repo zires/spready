@@ -1,20 +1,17 @@
-# encoding: utf-8
-require 'ostruct'
+require 'active_support/hash_with_indifferent_access'
 
 module Spready
   class Configuration
     
-    # Options
-    #   orm: mongoid, active_record, nil. Default is nil.
-    #   user: OpenStruct.new(:user_class => :User, 
-    #                        :authenticate_method => :authenticate_user!,
-    #                        :provider => :devise
-    #                        :roles => [:administrator, :moderator, :editor, :member, :guest])
-    attr_accessor :orm, :user
+    attr_accessor :orm, :user_class, :user_roles, :user_provider, :authenticate_method, :theme
 
     def initialize
-      # Default settings
-      @user = OpenStruct.new(:user_class => :User, :authenticate_method => :authenticate_user!, :provider => :devise)
+      @orm   = :active_record
+      @theme = :spready
+      @user_class    = :User
+      @user_provider = :devise
+      @user_roles = [:administrator, :moderator, :editor, :member, :guest]
+      @authenticate_method = :authenticate_user!
     end
 
   end

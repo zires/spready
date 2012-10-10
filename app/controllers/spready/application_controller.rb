@@ -2,7 +2,7 @@ module Spready
   class ApplicationController < ActionController::Base
     protect_from_forgery
 
-    # theme Site.theme
+    theme Spready.theme
 
     private
 
