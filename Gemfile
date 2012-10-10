@@ -19,6 +19,10 @@ gem "jquery-rails"
 # Multiple themes
 gem 'theme_park'
 
+# Templates handling
+gem "mustache"
+gem "stache"
+
 gem "mongoid", "~> 3.0.0"
 
 # User authentication
@@ -31,3 +35,5 @@ gem 'sass-rails', '~> 3.1'
 gem 'bootstrap-sass', '~> 2.0.4.1'
 
 gem 'formtastic'
+
+gem 'unicorn'

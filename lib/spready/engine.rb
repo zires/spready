@@ -2,6 +2,8 @@ module Spready
   class Engine < ::Rails::Engine
     isolate_namespace Spready
 
+    paths["app/views"] << "app/templates"
+
     # Before set_load_path, detect which orm should be used.
     initializer :set_orm_path, :before => :set_load_path do
 
