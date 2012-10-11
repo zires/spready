@@ -2,6 +2,8 @@ module Spready
   class Engine < ::Rails::Engine
     isolate_namespace Spready
 
+    config.autoload_paths << File.expand_path("../../../app/views", __FILE__)
+
     paths["app/views"] << "app/templates"
 
     # Before set_load_path, detect which orm should be used.
