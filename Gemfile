@@ -21,6 +21,7 @@ gem 'theme_park'
 
 # Templates handling
 gem "mustache"
+gem 'handlebars'
 gem "stache"
 
 gem "mongoid", "~> 3.0.0"
